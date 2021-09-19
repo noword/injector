@@ -426,6 +426,7 @@ static int kick_then_wait_sigtrap(const injector_t *injector, struct user_regs_s
             case SIGTRAP:
                 goto got_sigtrap;
             case SIGSTOP:
+            case SIGCHLD:
                 rv = injector__continue(injector);
                 if (rv != 0) {
                     goto cleanup;
