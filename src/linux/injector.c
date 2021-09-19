@@ -43,6 +43,7 @@ int injector_attach(injector_t **injector_out, pid_t pid)
     injector__errmsg_is_set = 0;
 
     injector = calloc(1, sizeof(injector_t));
+    memset(injector, 0, sizeof(injector_t));
     if (injector == NULL) {
         injector__set_errmsg("malloc error: %s", strerror(errno));
         return INJERR_NO_MEMORY;
